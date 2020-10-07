@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../assets/style.css">
+    <title>{{ .PageTitle }}</title>
+</head>
+<body>
+    <h1>{{ .PageTitle }}</h1>
+    <ul>
+        <li>
+            <form action="/add-todo" method="POST">
+                <input type="text" name="todotitle">
+                <input type="submit" value="add">
+            </form>
+        </li>
+        {{ range .Todos }}
+            <li>{{ .Title}} <span class="remove"><a href="/remove-todo/{{.Id}}">Done &#10004;</a></span></li>
+        {{ end }}
+    </ul>
+    <script src="../assets/jquery-3.4.1.min.js"></script>
+    <script>
+        function removeTodo(id){
+
+        }
+    </script>
+</body>
+</html>
